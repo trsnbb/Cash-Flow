@@ -1,10 +1,13 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Infrastructure;
+using Microsoft.Extensions.Logging;
 using System.Globalization;
 
 namespace Registr
 {
     public static class MauiProgram
     {
+        public static IncomingRepository IncomingRepository { get; private set; }
+
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -24,6 +27,7 @@ namespace Registr
 #endif
 
             SetCultureInfo();
+            ConfigDb();
 
             return builder.Build();
         }
@@ -35,6 +39,12 @@ namespace Registr
             Thread.CurrentThread.CurrentUICulture = culture;
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
+        }
+
+        private static void ConfigDb()
+        {
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "cach-flow.db3");
+            IncomingRepository = new IncomingRepository(dbPath);
         }
     }
 }
