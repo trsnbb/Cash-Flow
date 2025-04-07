@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using System.Globalization;
 
 namespace Registr
 {
@@ -22,7 +23,18 @@ namespace Registr
     		builder.Logging.AddDebug();
 #endif
 
+            SetCultureInfo();
+
             return builder.Build();
+        }
+
+        private static void SetCultureInfo()
+        {
+            CultureInfo culture = new CultureInfo("uk");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
     }
 }

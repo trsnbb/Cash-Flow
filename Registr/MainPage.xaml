@@ -1,5 +1,6 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:Registr.Resources.Texts"
              x:Class="Registr.MainPage"
              BackgroundColor="Black">
 
@@ -27,8 +28,8 @@
                       />
 
                 <!-- Заголовок -->
-                
-                <Label Text="Реєстрація"
+
+                <Label Text="{x:Static resx:AppResources.Registration}"
                    FontFamily="MontserratBold"
                    FontSize="24"
                    FontAttributes="Bold"
@@ -39,7 +40,7 @@
                 <VerticalStackLayout 
                     WidthRequest="277">
                     <!-- Пошта Label -->
-                    <Label Text="Пошта"
+                    <Label Text="{x:Static resx:AppResources.Email}"
                        FontFamily="Montserrat"
                        FontSize="16"
                        TextColor="White"
@@ -60,7 +61,7 @@
                     </Border>
 
                     <!-- Пароль Label -->
-                    <Label Text="Пароль"
+                    <Label Text="{x:Static resx:AppResources.Password}"
                        FontSize="16"
                        FontFamily="Montserrat"
                        TextColor="White"
@@ -83,7 +84,7 @@
                 </VerticalStackLayout>
                 
                 <!-- Кнопка -->
-                <Button Text="Підтвердити"
+                <Button Text="{x:Static resx:AppResources.ConfirmButton}"
                         FontSize="Body"
                         FontFamily="MontserratBold"
                         Padding="24,7,24,7"
