@@ -1,0 +1,117 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:Registr.Resources.Texts"
+             x:Class="Registr.MainPage"
+             BackgroundColor="Black">
+
+    <Grid>
+        <Image Source="background.png"
+               Aspect="AspectFill"/>
+
+        <Border
+            BackgroundColor="#2A2A2A"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 35"
+            Padding="30"
+            WidthRequest="354"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            >
+
+            <VerticalStackLayout>
+
+                <!-- Логотип -->
+                <Image Source="logo_icon.png"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       HorizontalOptions="Center"
+                      />
+
+                <!-- Заголовок -->
+
+                <Label Text="{x:Static resx:AppResources.Registration}"
+                   FontFamily="MontserratBold"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   Margin="0,30,0,15"/>
+
+                <VerticalStackLayout 
+                    WidthRequest="277">
+                    <!-- Пошта Label -->
+                    <Label Text="{x:Static resx:AppResources.Email}"
+                       FontFamily="Montserrat"
+                       FontSize="16"
+                       TextColor="White"
+                       Margin="10,0,0,5"/>
+
+                    <!-- Пошта Entry з білим обводом -->
+                    <Border Stroke="#fff"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15"
+                        HeightRequest="39"
+                        WidthRequest="277"
+                        Margin="0,0,0,20">
+                        <Entry x:Name="EmailEntry"
+                        TextColor="White"
+                        BackgroundColor="Transparent"
+                        Margin="10,0,10,0"
+                        />
+                    </Border>
+
+                    <!-- Пароль Label -->
+                    <Label Text="{x:Static resx:AppResources.Password}"
+                       FontSize="16"
+                       FontFamily="Montserrat"
+                       TextColor="White"
+                       Margin="10,0,0,5"/>
+
+                    <!-- Пароль Entry з білим обводом -->
+                    <Border Stroke="White"
+                        StrokeThickness="1"
+                        HeightRequest="39"
+                        WidthRequest="277"
+                        StrokeShape="RoundRectangle 15"
+                        >
+                        <Entry x:Name="PasswordEntry"
+                           IsPassword="True"
+                           TextColor="White"
+                           BackgroundColor="Transparent"
+                           Margin="10,0,10,0"/>
+                    </Border>
+
+                </VerticalStackLayout>
+                
+                <!-- Кнопка -->
+                <Button Text="{x:Static resx:AppResources.ConfirmButton}"
+                        FontSize="Body"
+                        FontFamily="MontserratBold"
+                        Padding="24,7,24,7"
+                        Margin="0,30,0,0"
+                        BackgroundColor="#00C471"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="25"
+                        HeightRequest="35"
+                        WidthRequest="175"
+                        Clicked="OnConfirmClicked"/>
+
+                <!-- Соцмережі -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Margin="0, 20, 0 ,0">
+                    <ImageButton Source="google.svg"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnGoogleLoginClicked"
+                                 WidthRequest="28"
+                                 HeightRequest="28"/>
+                    <ImageButton Source="facebook.svg"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnFacebookLoginClicked"
+                                 WidthRequest="28"
+                                 HeightRequest="28"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>
